@@ -30,11 +30,15 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
-      {currentUser ? (
-        <div>
-          <Avatar userInformation={currentUser} />
-        </div>
-      ) : null}
+      {currentUser
+        ? [
+            currentUser.photoURL ? (
+              <div key={currentUser.uid}>
+                <Avatar userInformation={currentUser} />
+              </div>
+            ) : null,
+          ]
+        : null}
     </div>
   </div>
 );
